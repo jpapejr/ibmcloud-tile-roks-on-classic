@@ -1,17 +1,14 @@
-variable "ibmcloud_api_key" {
+variable "sl_api_key" {
     default = "" 
 }
 
-variable "cos_service_name" {
-    default = "myservice"
+variable "sl_user" {
+    default = ""
 }
 
-variable "cos_service_plan" {
-    default = "standard"
-}
 
 variable "cluster_node_flavor" {
-    default = "bx2.16x64"
+    default = "b3c.16x64"
 }
 
 variable "cluster_kube_version" {
@@ -19,20 +16,21 @@ variable "cluster_kube_version" {
 }
 
 variable "worker_count"{
-    default = "2"
+    default = "3"
 }
 
-variable "region" {
-  default = "us-east"
+variable "zone" {
+  default = ""
 }
 
 variable "resource_group" {
-  default = "Default"
+  default = "default"
 }
 
 variable "cluster_name" {
-  default = "cluster-roks-on-vpc"
+  default = "cluster-roks-on-classic"
 }
+
 
 variable "entitlement"{
   default = ""
