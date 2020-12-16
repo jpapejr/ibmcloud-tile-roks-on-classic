@@ -22,7 +22,7 @@ resource "ibm_network_vlan" "private_vlan" {
    name = "private-vlan-${random_id.name1.hex}"
    datacenter = var.zone
    type = "PRIVATE"
-   router_hostname = "fcr01a.${var.zone}"
+   router_hostname = "bcr01a.${var.zone}"
 }
 
 data "ibm_resource_group" "resource_group" {
@@ -38,7 +38,5 @@ resource "ibm_container_cluster" "cluster" {
   kube_version      = var.cluster_kube_version
   public_vlan_id    = ibm_network_vlan.public_vlan.id
   private_vlan_id   = ibm_network_vlan.private_vlan.id
-  lifecycle {
-    ignore_changes = ["kube_version"]
-  }
+
 }
