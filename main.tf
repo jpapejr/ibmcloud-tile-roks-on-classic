@@ -30,7 +30,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 resource "ibm_container_cluster" "cluster" {
-  name                 = "mycluster-${random_id.name1.hex}"
+  name                 = "${var.cluster_name-${random_id.name1.hex}"
   datacenter           = var.zone
   default_pool_size.   = var.worker_count
   machine_type         = var.cluster_node_flavor
