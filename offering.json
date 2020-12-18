@@ -1,0 +1,158 @@
+{
+  "label": "Multi-zone ROKS 4.x Classic cluster v1.0.0",
+  "name": "ibmcloud-tile-roks-on-classic-1.0.0-mzr",
+  "offering_icon_url": "https://globalcatalog.cloud.ibm.com/api/v1/1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc/artifacts/terraform.svg",
+  "tags": [
+    "terraform",
+    "containers"
+  ],
+  "rating": {},
+  "short_description": "Provisions a ROKS 4.x cluster in an IBM Cloud resource group with classic compute and networking.",
+  "kinds": [
+    {
+      "format_kind": "terraform",
+      "install_kind": "terraform",
+      "target_kind": "terraform",
+      "versions": [
+        {
+          "version": "v1.0.0",
+          "catalog_id": "c9dfa620-513f-428a-8a7e-9d5bf8adc367",
+          "repo_url": "https://github.com/jpapejr/ibmcloud-tile-roks-on-classic",
+          "tgz_url": "https://github.com/jpapejr/ibmcloud-tile-roks-on-classic/archive/v1.0.0-mzr.tar.gz",
+          "configuration": [
+            {
+              "key": "sl_api_key",
+              "type": "password",
+              "description": "The IBM Cloud IaaS(Softlayer) API key that has permission to create the classic networking and provision the cluster",
+              "required": true,
+              "hidden": false
+            },
+            {
+              "key": "sl_user",
+              "type": "string",
+              "description": "The IBM Cloud IaaS user name that has permission to create the classic networking and provision the cluster",
+              "required": true,
+              "hidden": false
+            },
+            {
+              "key": "cluster_node_flavor",
+              "type": "string",
+              "description": "The machine flavor that should be provisioned for each worker node",
+              "options": [
+                {
+                  "label": "b3c.16x64",
+                  "value": "b3c.16x64"
+                },
+                {
+                  "label": "b3c.32x128",
+                  "value": "b3c.32x128"
+                },
+                {
+                  "label": "b3c.4x16",
+                  "value": "b3c.4x16"
+                },
+                {
+                  "label": "b3c.8x32",
+                  "value": "b3c.8x32"
+                },
+                {
+                  "label": "c3c.16x32",
+                  "value": "c3c.16x32"
+                },
+                {
+                  "label": "c3c.32x64",
+                  "value": "c3c.32x64"
+                },
+                {
+                  "label": "m3c.16x128",
+                  "value": "m3c.16x128"
+                },
+                {
+                  "label": "m3c.4x32",
+                  "value": "m3c.4x32"
+                },
+                {
+                  "label": "m3c.8x64",
+                  "value": "m3c.8x64"
+                }
+              ],
+              "required": true,
+              "hidden": false
+            },
+            {
+              "key": "cluster_kube_version",
+              "type": "string",
+              "description": "The type of cluster that will be provisioned",
+              "options": [
+                {
+                  "label": "OpenShift 4.5",
+                  "value": "4.5_openshift"
+                },
+                {
+                  "label": "OpenShift 4.4",
+                  "value": "4.4_openshift"
+                },
+                {
+                  "label": "OpenShift 4.3",
+                  "value": "4.3_openshift"
+                }
+              ],
+              "required": true,
+              "hidden": false
+            },
+            {
+              "key": "worker_count",
+              "type": "int",
+              "description": "The number of worker nodes that will be created in each VPC zone (e.g. n x 3)",
+              "required": true,
+              "hidden": false
+            },
+            {
+              "key": "resource_group",
+              "type": "string",
+              "description": "Existing resource group where the cluster will be provisioned",
+              "required": true,
+              "hidden": false
+            },
+            {
+              "key": "cluster_name",
+              "type": "string",
+              "description": "The name of the cluster",
+              "required": true,
+              "hidden": false
+            },
+            {
+              "key": "TF_VERSION",
+              "type": "string",
+              "default_value": "0.12",
+              "description": "The version of terraform that should be used",
+              "required": true,
+              "hidden": false
+            }
+          ],
+          "install": {
+            "instructions": "N/A"
+          },
+          "entitlement": {
+            "provider_name": "free",
+            "provider_id": "free"
+          },
+          "licenses": [
+            {
+              "name": "LICENSE",
+              "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+          ],
+          "deprecated": false,
+          "long_description": "A Terraform-driven convenience tile that makes provisioning a new classic-based ROKS 4.x cluster easier."
+        }
+      ]
+    }
+  ],
+  "catalog_id": "c9dfa620-513f-428a-8a7e-9d5bf8adc367",
+  "hidden": false,
+  "provider": "IBM",
+  "repo_info": {
+    "type": "public_git"
+  }
+}
